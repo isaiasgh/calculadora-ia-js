@@ -1,0 +1,131 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: #839788;
+}
+
+body, main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+main {
+    margin: 20px;
+}
+
+.tituloCalculadora{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 50px;
+    color: #d1cab8;
+}
+
+.div-botones {
+    margin: 20px;
+    padding: 5px;
+}
+
+.boton {
+    border-radius: 20px;
+    border: 1.5px solid #0e141c;
+    padding: 15px;
+    margin: auto 10px;
+    cursor: pointer;
+    background-color: #E5D1D0;
+    color: black;
+    font-size: 15px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.contenedor-img {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    margin: auto 0;
+}
+
+.contenedor-img h1, p {
+    text-align: center;
+}
+
+.divdecuadradoinput{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.img {
+    width: 20%;
+    margin: 20px;
+}
+
+.contenedorCuadrado {
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    margin: 20px;
+}
+
+.contenedorCuadrado h1 {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #E5D1D0;
+}
+
+.contenedorCuadrado label, p{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: black;
+    font-size: 15px;
+}
+
+.cuadrado, .circulo, .triangulo {
+    cursor: pointer;
+}
+
+.contenedor-img p, label, input {
+    margin: 10px;
+}
+
+.contenedor-img input{
+    text-align: center;
+    padding: 1px;
+    border-radius: 10px;
+}
+
+.buttonCuadrado {
+    border-radius: 20px;
+    border: 1.5px solid #0e141c;
+    margin: auto 10px;
+    padding: 1px;
+    cursor: pointer;
+    background-color: #E5D1D0;
+    color: black;
+    font-size: 15px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+@media (max-width: 400px){
+    .div-botones button{
+        font-size: 13px;
+    }
+    .contenedor-img {
+        width: 100%;
+    }
+}
+
+@media (max-width: 1100px){
+    .div-botones button{
+        padding: 10px;
+        font-size: 12px;
+    }
+    .contenedor-img {
+        width: 100%;
+    }
+}

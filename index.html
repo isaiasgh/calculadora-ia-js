@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <main>
+        <h1 class="tituloCalculadora">Calculadora IA</h1>
+    </main>
+    <div class="div-botones">
+        <button id="boton1" class="boton">Geometría</button>
+        <button id="boton2" class="boton">Estadística</button>
+        <button id="boton3" class="boton">Descuentos</button>
+    </div>  
+    <div class="contenedor-img">
+        <img src="./img/cuadrado.png" alt="" class="cuadrado img">
+        <img src="./img/circulo.png" alt="" class="circulo img">
+        <img src="./img/triangulo.png" alt="" class="triangulo img">
+        <div class="contenedorCuadrado">
+            <h1>Área y Perímetro de tu Cuadrado</h1>
+            <div class="divdecuadradoinput">
+                <label for="ladoCuadrado">Ingresa cuánto mide el lado de tu Cuadrado</label>
+                <input type="number" id="ladoCuadrado" placeholder="Lado de tu Cuadrado">
+                <button class="buttonCuadrado">Calcular</button>
+            </div>
+            <p class="perimetroText">El perímetro de tu cuadrado mide: </p>
+            <p class="areaText">El área de tu cuadrado mide: </p>
+        </div>
+    </div>
+    <script src="./main.js"></script>
+</body>
+</html>

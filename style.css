@@ -43,7 +43,7 @@ main {
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-.contenedor-img {
+.contenedor-img, .contenedorPorcentajes {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -56,13 +56,17 @@ main {
     text-align: center;
 }
 
-.divdecuadradoinput, .divdetrianguloinput, .divdecirculoinput{
+.contenedorPorcentajes h1, p {
+    text-align: center;
+}
+
+.divdecuadradoinput, .divdetrianguloinput, .divdecirculoinput, .divdeporcentajesinput{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-.divdetrianguloinput, .divdecirculoinput{
+.divdetrianguloinput, .divdecirculoinput, .divdeporcentajesinput{
     align-items: center;
     flex-direction: column;
 }
@@ -73,6 +77,11 @@ main {
 }
 
 .divdecirculoinput input, .buttonCirculo{
+    width: auto;
+    margin: 10px auto;
+}
+
+.divdeporcentajesinput input, .buttonPorcentajes{
     width: auto;
     margin: 10px auto;
 }
@@ -89,7 +98,7 @@ main {
     margin: 20px;
 }
 
-.contenedorCuadrado h1, .contenedorTriangulo h1, .contenedorCirculo h1 {
+.contenedorCuadrado h1, .contenedorTriangulo h1, .contenedorCirculo h1, .contenedorPorcentajes h1{
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: #E5D1D0;
 }
@@ -112,6 +121,12 @@ main {
     font-size: 15px;
 }
 
+.contenedorPorcentajes label, p {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: black;
+    font-size: 15px;
+}
+
 .cuadrado, .circulo, .triangulo {
     cursor: pointer;
 }
@@ -126,7 +141,13 @@ main {
     border-radius: 10px;
 }
 
-.buttonCuadrado, .buttonTriangulo, .buttonCirculo, .buttonEstadistica {
+.contenedorPorcentajes input{
+    text-align: center;
+    padding: 1px;
+    border-radius: 10px;
+}
+
+.buttonCuadrado, .buttonTriangulo, .buttonCirculo, .buttonEstadistica, .buttonPorcentajes, .botonParaCalcularStats {
     border-radius: 20px;
     border: 1.5px solid #0e141c;
     margin: auto 10px;
@@ -168,6 +189,25 @@ main {
 
 .div-input-estadistica input{
     text-align: center;
+}
+
+.divdeinput{
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    justify-content: center;
+    flex-direction: row;
+}
+.divdeinput p{
+    padding: 20px;
+}
+
+.botonParaCalcularStats{
+    margin: 10px 100%;
+}
+
+.contenedorPorcentajes{
+    flex-direction: column;
 }
 
 @media (max-width: 400px){

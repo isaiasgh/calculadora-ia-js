@@ -2,7 +2,7 @@ const body = document.querySelector('body');
 const boton = document.querySelector('.boton')
 const botonGeometria = document.querySelector('#boton1');
 const botonEstadistica = document.querySelector('#boton2');
-const botonDescuentos = document.querySelector('#boton3');
+const botonPorcentajes = document.querySelector('#boton3');
 const contenedorImg = document.querySelector('.contenedor-img');
 
 const figuraCuadrado = document.querySelector('.cuadrado');
@@ -21,6 +21,7 @@ function geometriaCalculadora(){
         contenedorTriangulo.style.display = 'none';
         contenedorCuadrado.style.display = 'none';
         contenedorCirculo.style.display = 'none';
+        contenedorPorcentajes.style.display = 'none';
     } else if (estado == 'flex'){
         contenedorImg.style.display = 'none';
     }
@@ -164,6 +165,7 @@ function estadisticaCalculadora(){
     if (estado == 'none'){
         contenedorEstadistica.style.display = 'flex';
         contenedorImg.style.display = 'none';
+        contenedorPorcentajes.style.display = 'none';
     } else if (estado == 'flex'){
         contenedorEstadistica.style.display = 'none';
     }
@@ -208,7 +210,6 @@ function generarInputs(numInputsGen){
         divParaInputs.appendChild(nuevoInput);
         let nombreparaplaceholder = i + 1;
         nuevoInput.placeholder = 'Elemento ' + nombreparaplaceholder;
-        
 
         Elementos.push(nuevoInput);
     }
@@ -235,6 +236,9 @@ function calcularStatsFunction(){
     pInfoModa.innerHTML = 'Su moda es: ' + calcularModa();
     pInfoMediana.innerHTML = 'Su media redondeada es: ' + calcularPromedio();
     pInfoMedia.innerHTML = 'Su mediana redondeada es: ' + calcularMediana();
+    pInfoMediana.style.width = '100%';
+    pInfoMedia.style.width = '100%';
+    pInfoModa.style.width = '100%';
     vaciarArray();
 }
 
@@ -332,3 +336,38 @@ function vaciarArray(){
         ListaInputsInfo.pop();
     }
 }
+
+// Porcentajes
+const botonCalcularPorcentajes = document.querySelector('.buttonPorcentajes');
+const contenedorPorcentajes = document.querySelector('.contenedorPorcentajes');
+
+const pPorcentaje = document.querySelector('.pPorcentaje');
+const valorInicial = document.querySelector('#valorInicial');
+const porcentaje = document.querySelector('#valorDescuento');
+botonPorcentajes.addEventListener('click', porcentajeCalculadora);
+botonCalcularPorcentajes.addEventListener('click', calcularPorcentaje);
+
+contenedorPorcentajes.style.display = 'none';
+
+function porcentajeCalculadora() {
+    estado = contenedorPorcentajes.style.display;
+    if (estado == 'none'){
+        contenedorPorcentajes.style.display = 'flex';
+        contenedorImg.style.display = 'none';
+        contenedorEstadistica.style.display = 'none';
+        contenedorTriangulo.style.display = 'none';
+        contenedorCuadrado.style.display = 'none';
+        contenedorCirculo.style.display = 'none';
+    } else if (estado == 'flex'){
+        contenedorPorcentajes.style.display = 'none';
+    }
+}
+
+function calcularPorcentaje(){
+    const price = Number(valorInicial.value);
+    let discount = Number(porcentaje.value);
+
+    const newPrice = ((price * discount) / 100);
+  
+    pPorcentaje.innerText = 'EL ' + discount + '% de ' + price + ' es: ' + newPrice;
+  }

@@ -56,10 +56,25 @@ main {
     text-align: center;
 }
 
-.divdecuadradoinput{
+.divdecuadradoinput, .divdetrianguloinput, .divdecirculoinput{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+}
+
+.divdetrianguloinput, .divdecirculoinput{
+    align-items: center;
+    flex-direction: column;
+}
+
+.divdetrianguloinput input, .buttonTriangulo{
+    width: auto;
+    margin: 10px auto;
+}
+
+.divdecirculoinput input, .buttonCirculo{
+    width: auto;
+    margin: 10px auto;
 }
 
 .img {
@@ -67,19 +82,31 @@ main {
     margin: 20px;
 }
 
-.contenedorCuadrado {
+.contenedorCuadrado, .contenedorTriangulo, .contenedorCirculo {
     flex-wrap: wrap;
     justify-content: center;
     flex-direction: column;
     margin: 20px;
 }
 
-.contenedorCuadrado h1 {
+.contenedorCuadrado h1, .contenedorTriangulo h1, .contenedorCirculo h1 {
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: #E5D1D0;
 }
 
 .contenedorCuadrado label, p{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: black;
+    font-size: 15px;
+}
+
+.contenedorTriangulo label, p{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: black;
+    font-size: 15px;
+}
+
+.contenedorCirculo label, p{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: black;
     font-size: 15px;
@@ -99,7 +126,7 @@ main {
     border-radius: 10px;
 }
 
-.buttonCuadrado {
+.buttonCuadrado, .buttonTriangulo, .buttonCirculo, .buttonEstadistica {
     border-radius: 20px;
     border: 1.5px solid #0e141c;
     margin: auto 10px;
@@ -109,6 +136,38 @@ main {
     color: black;
     font-size: 15px;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.buttonTriangulo{
+    width: 20%;
+}
+
+.contenedor-estadistica{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    margin: auto 0;
+    text-align: center;
+}
+
+.contenedor-estadistica h1{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #E5D1D0;
+}
+
+.div-input-estadistica{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: black;
+    font-size: 15px;
+}
+
+.div-input-estadistica input{
+    text-align: center;
 }
 
 @media (max-width: 400px){

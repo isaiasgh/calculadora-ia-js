@@ -194,6 +194,7 @@ function generarInputs(numInputsGen){
     let numeroElementosAntiguos = Elementos.length;
 
     if (numeroElementosAntiguos > 0){
+        vaciarArray();
         (eliminarElementos(numeroElementosAntiguos)); // eliminar inputs, en caso de que exista uno hecho previamente.
     }
     
@@ -203,6 +204,7 @@ function generarInputs(numInputsGen){
         let nuevoInput = document.createElement('input');
         nuevoInput.setAttribute('id', 'inputNuevo' + i);
         nuevoInput.setAttribute('class', 'inputyesyes');
+        nuevoInput.type = 'number';
         divParaInputs.appendChild(nuevoInput);
         let nombreparaplaceholder = i + 1;
         nuevoInput.placeholder = 'Elemento ' + nombreparaplaceholder;
@@ -230,25 +232,25 @@ function calcularStatsFunction(){
     // hacer los calculos e imprimirlos
     pushElementosAuto();
 
-    pInfoModa.innerHTML = 'Su moda es: ' + calcularModa(listaPrueba);
-    pInfoMediana.innerHTML = 'Su media es: ' + calcularMediana(listaPrueba);
-    pInfoMedia.innerHTML = 'Su mediana es: ' + calcularPromedio(listaPrueba);
-
+    pInfoModa.innerHTML = 'Su moda es: ' + calcularModa();
+    pInfoMediana.innerHTML = 'Su media redondeada es: ' + calcularPromedio();
+    pInfoMedia.innerHTML = 'Su mediana redondeada es: ' + calcularMediana();
+    vaciarArray();
 }
 
-function esPar(lista){
-    return !(lista.length % 2);
+function esPar(){
+    return !(ListaInputsInfo.length % 2);
 }
 
-function esImpar(lista){
-    return(lista.length % 2);
+function esImpar(){
+    return(ListaInputsInfo.length % 2);
 }
 
-function calcularModa(lista){
+function calcularModa(){
     const listaCount = {};
 
-    for (let i = 0; i < lista.length; i++){
-        const elemento = lista[i];
+    for (let i = 0; i < ListaInputsInfo.length; i++){
+        const elemento = ListaInputsInfo[i];
         if (listaCount[elemento]){
             listaCount[elemento] += 1;
         } else {
@@ -264,17 +266,24 @@ function calcularModa(lista){
 }
 
 
-function calcularPromedio(lista){
-    const sumaLista = lista.reduce((a, b) => a+b);
+function calcularPromedio(){
 
-    const promedio = sumaLista / lista.length;
+    let sumaLista = 0;
+
+    for (let i = 0; i < ListaInputsInfo.length; i++){
+        sumaLista = sumaLista + ListaInputsInfo[i];
+        console.log(sumaLista);
+    }
+    let promedio = Math.floor(sumaLista / ListaInputsInfo.length);
     console.log(promedio);
     return promedio;
 }
 
-function calcularMediana(listaDesordenada){
-    const lista = ordenarLista(listaDesordenada);
+
+function calcularMediana(){
+    const lista = ordenarLista();
     const listaEsPar = esPar(lista);
+    console.log(lista);
 
     if (listaEsPar) {
         const indexMitad1ListaPar = (lista.length/2)-1;
@@ -284,19 +293,17 @@ function calcularMediana(listaDesordenada){
         listaMitades.push(lista[indexMitad2ListaPar]);
         return(calcularPromedio(listaMitades));
     } else{
-        const indexMitadListaImpar = Math.floor(lista.length/2);
-        const medianaListaImpar = lista[indexMitadListaImpar];
-        console.log(indexMitadListaImpar);
-        console.log(medianaListaImpar);
+        let indexMitadListaImpar = Math.floor(lista.length/2);
+        let medianaListaImpar = lista[indexMitadListaImpar];
         return medianaListaImpar;
     }
 }
 
-function ordenarLista(listaDesordenada){
+function ordenarLista(){
     function ordenarListaSort(valorAcumulado, nuevoValor){
         return valorAcumulado - nuevoValor;
     }
-    const lista = listaDesordenada.sort(ordenarListaSort);
+    const lista = ListaInputsInfo.sort(ordenarListaSort);
     return lista;
 }
 
@@ -312,10 +319,16 @@ function ordenarListaBidimensional(listaDesordenada, i){
 function pushElementosAuto(){
     let longitudInputs = Elementos.length;
     for(i=0 ; i < longitudInputs; i++){
-        let index = Elementos[i].value;
+        let index = Number(Elementos[i].value);
         ListaInputsInfo.push(index);
         console.log(ListaInputsInfo);
     }
 }
 
-// hacer otra funcion que me vacie mi array;
+// funcion que me vacie mi array;
+function vaciarArray(){
+    let longitudInputs = Elementos.length;
+    for(let i = 0; i< longitudInputs; i++){
+        ListaInputsInfo.pop();
+    }
+}
